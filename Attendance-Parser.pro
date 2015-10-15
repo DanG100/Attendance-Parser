@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = Attendance-Parser
 TEMPLATE = app
@@ -14,9 +14,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    dataparser.cpp
+    dataparser.cpp \
+    student.cpp \
+    dayofweek.cpp \
+    qcustomplot.cpp
 
 HEADERS  += mainwindow.h \
-    dataparser.h
+    dataparser.h \
+    student.h \
+    dayofweek.h \
+    qcustomplot.h
 
 FORMS    += mainwindow.ui

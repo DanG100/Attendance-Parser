@@ -1,15 +1,17 @@
 #ifndef DATAPARSER_H
 #define DATAPARSER_H
+
 #include <QFile>
+#include <QDebug>
 
 class DataParser
 {
 public:
-    DataParser(QFile datafile);
-    int readFile();
+    DataParser(QString filename);
+    ~DataParser();
+    void readFile();
 private:
-    QFile file;
-    void readLine();
+    QFile *file;
 };
 
 #endif // DATAPARSER_H
