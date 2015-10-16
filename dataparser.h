@@ -18,6 +18,7 @@ private:
     QList<Student *> allStudents;
     QList<DayOfWeek *> days;
     void processLine(QString name, QString time, QString inOut, QString date);
+    void processSignOut(Student *student);
 };
 
 #endif // DATAPARSER_H

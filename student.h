@@ -16,10 +16,14 @@ public:
     QDateTime getLastSignOut() const;
     void setLastSignOut(const QDateTime &value);
 
+    double getHoursIn() const;
+    void increaseHoursIn(double value);
+
 private:
     QString name;
     QDateTime lastSignIn;
     QDateTime lastSignOut;
+    double hoursIn;
 };
 
 #endif // STUDENT_H

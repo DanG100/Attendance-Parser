@@ -31,6 +31,16 @@ void Student::setLastSignOut(const QDateTime &value)
 {
     lastSignOut = value;
 }
+double Student::getHoursIn() const
+{
+    return hoursIn;
+}
+
+void Student::increaseHoursIn(double value)
+{
+    hoursIn += value;
+}
+
 
 
 

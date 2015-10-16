@@ -56,7 +56,19 @@ void DataParser::processLine(QString name, QString time, QString inOut, QString 
     {
         QDateTime signOut(QDate::fromString(date),QTime::fromString(time));
         stu->setLastSignOut(signOut);
+        processSignOut(stu);
     }
+}
+
+void DataParser::processSignOut(Student *student)
+{
+    if(student->getLastSignIn().date()==student->getLastSignOut().date())
+    {
+
+        student->increaseHoursIn(student->getLastSignIn().time().secsTo(student->getLastSignOut().time())/3600.);
+    }
+    if(student->getLastSignIn().time().secsTo(student->getLastSignOut().time())>90*60)
+        days.at(student->getLastSignOut().date().dayOfWeek()+1)->addStudent(student);
 }
 QList<Student *> DataParser::getAllStudents() const
 {

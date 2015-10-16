@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
     DataParser parser("data.csv");
     parser.readFile();
+    qDebug()<<"Done reading log";
 }
 
 MainWindow::~MainWindow()
