@@ -11,6 +11,8 @@ public:
     DayOfWeek(int dayOfWeek);
     int getDayOfWeek() const;
     void addStudent(Student* stu);
+    QList<Student *> *getStudents() const;
+
 private:
     int dayOfWeek;
     QList<Student*> *students;

@@ -20,6 +20,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void setUpPeoplePlot();
+    void setUpDayPlot();
+    DataParser *parser;
 
 };
 

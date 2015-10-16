@@ -13,5 +13,10 @@ void DayOfWeek::addStudent(Student *stu)
 {
     this->students->append(stu);
 }
+QList<Student *> *DayOfWeek::getStudents() const
+{
+    return students;
+}
+
 
 

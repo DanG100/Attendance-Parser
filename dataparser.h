@@ -13,6 +13,8 @@ public:
     void readFile();
 
     QList<Student *> getAllStudents() const;
+    QList<DayOfWeek *> getDays() const;
+
 private:
     QFile *file;
     QList<Student *> allStudents;
