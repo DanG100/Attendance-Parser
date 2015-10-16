@@ -27,7 +27,7 @@ void MainWindow::setUpPeoplePlot()
     QVector<double> hours;
     for(int i =0;i<this->parser->getAllStudents().size();i++)
     {
-        ticks << i;
+        ticks << i+1;
         labels << this->parser->getAllStudents().at(i)->getName();
         hours << this->parser->getAllStudents().at(i)->getHoursIn();
     }
@@ -39,7 +39,7 @@ void MainWindow::setUpPeoplePlot()
     ui->peopleGraph->xAxis->setSubTickCount(0);
     ui->peopleGraph->xAxis->setTickLength(0, 4);
     ui->peopleGraph->xAxis->grid()->setVisible(true);
-    ui->peopleGraph->xAxis->setRange(0, this->parser->getAllStudents().size());
+    ui->peopleGraph->xAxis->setRange(0, this->parser->getAllStudents().size()+1);
 
     ui->peopleGraph->yAxis->setRange(0,16);
     ui->peopleGraph->yAxis->setPadding(20);

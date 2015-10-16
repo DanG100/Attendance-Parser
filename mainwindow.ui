@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>817</width>
-    <height>532</height>
+    <width>1455</width>
+    <height>609</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>781</width>
-      <height>441</height>
+      <width>1421</width>
+      <height>531</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -36,6 +36,21 @@
       <string>Days</string>
      </attribute>
     </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>List</string>
+     </attribute>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="geometry">
+       <rect>
+        <x>15</x>
+        <y>11</y>
+        <width>1391</width>
+        <height>481</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -43,7 +58,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>817</width>
+     <width>1455</width>
      <height>21</height>
     </rect>
    </property>
