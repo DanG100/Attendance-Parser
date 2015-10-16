@@ -40,7 +40,7 @@
      <attribute name="title">
       <string>List</string>
      </attribute>
-     <widget class="QTableWidget" name="tableWidget">
+     <widget class="QTableWidget" name="peopleTable">
       <property name="geometry">
        <rect>
         <x>15</x>

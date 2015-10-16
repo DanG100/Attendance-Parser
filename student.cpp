@@ -41,6 +41,11 @@ void Student::increaseHoursIn(double value)
     hoursIn += value;
 }
 
+bool Student::operator <(const Student &other) const
+{
+    return this->getName() < other.getName();
+}
+
 
 
 

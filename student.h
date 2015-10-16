@@ -18,7 +18,7 @@ public:
 
     double getHoursIn() const;
     void increaseHoursIn(double value);
-
+    bool operator <(const Student& other) const;
 private:
     QString name;
     QDateTime lastSignIn;

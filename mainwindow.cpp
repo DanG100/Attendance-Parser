@@ -6,10 +6,18 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
     parser = new DataParser("data.csv");
     parser->readFile();
+    QMap<QString,double> map;
+    foreach(const Student *stu,this->parser->getAllStudents())
+    {
+        map.insert(stu->getName(),stu->getHoursIn());
+    }
+    sortedPeople = map.keys();
+    sortedHours = map.values();
+
     qDebug()<<"Done reading log";
     setUpPeoplePlot();
     setUpDayPlot();
-
+    setUpPeopleList();
 }
 
 MainWindow::~MainWindow()
@@ -25,11 +33,11 @@ void MainWindow::setUpPeoplePlot()
     QVector<double> ticks;
     QVector<QString> labels;
     QVector<double> hours;
-    for(int i =0;i<this->parser->getAllStudents().size();i++)
+    for(int i =0;i<sortedPeople.size();i++)
     {
         ticks << i+1;
-        labels << this->parser->getAllStudents().at(i)->getName();
-        hours << this->parser->getAllStudents().at(i)->getHoursIn();
+        labels << sortedPeople.at(i);
+        hours << sortedHours.at(i);
     }
     ui->peopleGraph->xAxis->setAutoTicks(false);
     ui->peopleGraph->xAxis->setAutoTickLabels(false);
@@ -74,6 +82,20 @@ void MainWindow::setUpDayPlot()
     ui->dayGraph->yAxis->setPadding(20);
     bars->setData(ticks,people);
     ui->dayGraph->replot();
+}
+
+void MainWindow::setUpPeopleList()
+{
+    ui->peopleTable->setRowCount(this->sortedPeople.size());
+    ui->peopleTable->setColumnCount(2);
+    for(int i =0;i<this->sortedPeople.size();i++)
+    {
+        QTableWidgetItem *name = new QTableWidgetItem(this->sortedPeople.at(i));
+
+        QTableWidgetItem *hours = new QTableWidgetItem(QString::number(this->sortedHours.at(i)));
+        ui->peopleTable->setItem(i,0,name);
+        ui->peopleTable->setItem(i,1,hours);
+    }
 }
 
 

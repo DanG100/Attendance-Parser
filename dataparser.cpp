@@ -24,10 +24,11 @@ void DataParser::readFile()
     {
         QString line = in.readLine();
         QString name = line.section(',',0,0);
+        QString fullName = name.section(" ",1) + "," + name.section(" ",0,0);
         QString time = line.section(',',1,1);
         QString inOut = line.section(',',2,2);
         QString date = line.section(',',3,3);
-        this->processLine(name,time,inOut,date);//should be moved to new thread later
+        this->processLine(fullName,time,inOut,date);//should be moved to new thread later
     }
 }
 
