@@ -11,14 +11,7 @@ int DayOfWeek::getDayOfWeek() const
 }
 void DayOfWeek::addStudent(Student *stu)
 {
-    bool alreadySignedIn = false;
-    for(int i = 0;i<students->size();i++)
-    {
-        if(stu->getName()==this->students->at(i)->getName())
-            alreadySignedIn = true;
-    }
-    if(!alreadySignedIn)
-        this->students->append(stu);
+    this->students->append(stu);
 }
 
 

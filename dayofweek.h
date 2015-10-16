@@ -4,6 +4,7 @@
 #include <QObject>
 #include <student.h>
 
+
 class DayOfWeek
 {
 public:

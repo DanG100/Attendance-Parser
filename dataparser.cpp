@@ -7,6 +7,10 @@ DataParser::DataParser(QString filename)
     {
         qDebug() << "Can't open file";
     }
+    for(int i = 1;i<=7;i++)
+    {
+        this->days.append(new DayOfWeek(i));
+    }
 }
 DataParser::~DataParser()
 {
@@ -22,6 +26,39 @@ void DataParser::readFile()
         QString name = line.section(',',0,0);
         QString time = line.section(',',1,1);
         QString inOut = line.section(',',2,2);
-        QString data = line.section(',',3,3);
+        QString date = line.section(',',3,3);
+        this->processLine(name,time,inOut,date);//should be moved to new thread later
     }
+}
+
+void DataParser::processLine(QString name, QString time, QString inOut, QString date)
+{
+    Student *stu = NULL;
+    for(int i = 0;i<allStudents.size();i++)
+    {
+        if(name==this->allStudents.at(i)->getName())
+        {
+            stu = this->allStudents.at(i);
+        }
+    }
+    if(stu==NULL)
+    {
+        stu = new Student();
+        this->allStudents.append(stu);
+    }
+    stu->setName(name);
+    if(inOut=="Sign In")
+    {
+        QDateTime signIn(QDate::fromString(date),QTime::fromString(time));
+        stu->setLastSignIn(signIn);
+    }
+    else
+    {
+        QDateTime signOut(QDate::fromString(date),QTime::fromString(time));
+        stu->setLastSignOut(signOut);
+    }
+}
+QList<Student *> DataParser::getAllStudents() const
+{
+    return allStudents;
 }
