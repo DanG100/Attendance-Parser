@@ -48,8 +48,13 @@ void MainWindow::setUpPeoplePlot()
     ui->peopleGraph->xAxis->setTickLength(0, 4);
     ui->peopleGraph->xAxis->grid()->setVisible(true);
     ui->peopleGraph->xAxis->setRange(0, this->parser->getAllStudents().size()+1);
-
-    ui->peopleGraph->yAxis->setRange(0,16);
+    double max=0;
+    for(int i =0;i<hours.size();i++)
+    {
+        if(hours.at(i)>max)
+            max=hours.at(i);
+    }
+    ui->peopleGraph->yAxis->setRange(0,max+4);
     ui->peopleGraph->yAxis->setPadding(20);
     bars->setData(ticks,hours);
     ui->peopleGraph->replot();
@@ -77,8 +82,13 @@ void MainWindow::setUpDayPlot()
     ui->dayGraph->xAxis->setTickLength(0, 4);
     ui->dayGraph->xAxis->grid()->setVisible(true);
     ui->dayGraph->xAxis->setRange(0,7);
-
-    ui->dayGraph->yAxis->setRange(0,16);
+    double max=0;
+    for(int i =0;i<people.size();i++)
+    {
+        if(people.at(i)>max)
+            max=people.at(i);
+    }
+    ui->dayGraph->yAxis->setRange(0,max+4);
     ui->dayGraph->yAxis->setPadding(20);
     bars->setData(ticks,people);
     ui->dayGraph->replot();
